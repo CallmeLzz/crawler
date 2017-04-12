@@ -1,0 +1,13 @@
+{
+    "name": "source/crawler",
+    "description": "Create overview sample can intergrate other project",
+    "authors": [
+        {
+            "name": "source",
+            "email": "source@gmail.com"
+        }
+    ],
+    "require": {
+        "jacopo/laravel-authentication-acl": "1.3.*"
+    }
+}
