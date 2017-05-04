@@ -9,7 +9,9 @@ class Crawlers extends Model {
     protected $table = 'crawlers';
     public $timestamps = false;
     protected $fillable = [
-        'crawler_name'
+        'crawler_subject',
+        'crawler_content',
+        'crawler_url'
     ];
     protected $primaryKey = 'crawler_id';
 
@@ -21,9 +23,9 @@ class Crawlers extends Model {
     public function get_crawlers($params = array()) {
         $eloquent = self::orderBy('crawler_id');
 
-        //crawler_name
-        if (!empty($params['crawler_name'])) {
-            $eloquent->where('crawler_name', 'like', '%'. $params['crawler_name'].'%');
+        //crawler_subject
+        if (!empty($params['crawler_subject'])) {
+            $eloquent->where('crawler_subject', 'like', '%'. $params['crawler_subject'].'%');
         }
 
         $crawlers = $eloquent->paginate(10);//TODO: change number of item per page to configs
@@ -49,7 +51,9 @@ class Crawlers extends Model {
 
         if (!empty($crawler)) {
 
-            $crawler->crawler_name = $input['crawler_name'];
+            $crawler->crawler_subject = $input['crawler_subject'];
+            $crawler->crawler_content = $input['crawler_content'];
+            $crawler->crawler_url = $input['crawler_url'];
 
             $crawler->save();
 
@@ -67,7 +71,9 @@ class Crawlers extends Model {
     public function add_crawler($input) {
 
         $crawler = self::create([
-                    'crawler_name' => $input['crawler_name'],
+                    'crawler_subject' => $input['crawler_subject'],
+                    'crawler_content' => $input['crawler_content'],
+                    'crawler_url' => $input['crawler_url']
         ]);
         return $crawler;
     }

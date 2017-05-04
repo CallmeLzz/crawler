@@ -156,5 +156,4 @@ class CrawlerAdminController extends Controller {
 
         return Redirect::route("admin_crawler");
     }
-
 }

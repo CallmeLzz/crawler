@@ -5,6 +5,9 @@ return [
     "package_name" => 'Crawler',
     "package_description" => 'Crawler package is for initial',
     "order" => '#',
+    'crawler_id' => 'ID',
+    'crawler_subject' => 'Subject',
+    'crawler_content' => 'Content',
     "operations" => 'Operations',
     'crawler_category_name_label' => 'Crawler category name:',
     /**

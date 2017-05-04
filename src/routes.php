@@ -93,5 +93,10 @@ Route::group(['middleware' => ['web']], function () {
         ////////////////////////////////////////////////////////////////////////
         ////////////////////////////CATEGORIES///////////////////////////////
         ////////////////////////////////////////////////////////////////////////
+
+        Route::get('admin/getData', [
+            'as' => 'admin_crawler_getdata',
+            'uses' => 'Crawler\Controllers\Admin\CrawlerController@index'
+        ]);
     });
 });
